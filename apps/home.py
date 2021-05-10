@@ -79,17 +79,16 @@ def app():
 
     # predOutput = 5
     # st.success(f"{predOutput}")
-    if st.button("Predict!"):
-        with st.spinner("Loading..."):
-            if selectedVideo:
+    if st.button("Transcribe"):
+        if selectedVideo:
+            with st.spinner("Loading... Please wait, it is slow, I know..."):
                 # Launch Prediction Module
                 st.write("""
-                           # Transcribed Music:
+                           # Transcribed Music: (.midi Output)
                            """)
                 if CNN_pred(selectedVideo):
                     st.markdown(get_binary_file_downloader_html('outputtest.midi', 'Midi File'), unsafe_allow_html=True)
                 else:
                     st.warning("Error")
-
-            else:
-                st.error("Select A File")
+        else:
+            st.error("Select A File")
