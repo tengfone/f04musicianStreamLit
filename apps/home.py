@@ -82,13 +82,12 @@ def app():
     if st.button("Transcribe"):
         if selectedVideo:
             with st.spinner("Loading... Please wait, it is slow, I know..."):
-                # Launch Prediction Module
-                st.write("""
+                if CNN_pred(selectedVideo):
+                    st.write("""
                            # Transcribed Music: (.midi Output)
                            """)
-                if CNN_pred(selectedVideo):
                     st.markdown(get_binary_file_downloader_html('outputtest.midi', 'Midi File'), unsafe_allow_html=True)
                 else:
-                    st.warning("Error")
+                    st.warning("Error Please Contact @tengfone on GitHub")
         else:
             st.error("Select A File")
