@@ -1,0 +1,8 @@
+-f https://download.pytorch.org/whl/torch_stable.html
+torch==1.8.1+cpu
+numpy==1.19.2
+pandas==1.2.1
+streamlit==0.81.0
+scipy==1.6.3
+nnAudio==0.2.2
+MIDIUtil==1.2.1
